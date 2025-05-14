@@ -1,12 +1,13 @@
-import numpy as np
+import torch
 from sklearn.preprocessing import StandardScaler
 
 
 def normalize_skeleton_sequence(sequence):
     """
-    Нормализует последовательность скелетных данных
+    Normalizes a sequence of skeleton data.
+
     :param sequence: np.ndarray, shape = (T, J, C)
-    :return: нормализованная последовательность
+    :return: normalized skeleton sequence
     """
     T, J, C = sequence.shape
     flat = sequence.reshape(-1, C)
@@ -17,7 +18,11 @@ def normalize_skeleton_sequence(sequence):
 
 def create_graph_from_skeletons(skeleton_sequence, edge_index):
     """
-    Преобразует последовательность скелетов в список Graph Data объектов
+    Converts a skeleton sequence into a list of Graph Data objects.
+
+    :param skeleton_sequence: list or array of skeleton frames
+    :param edge_index: tensor of graph edges
+    :return: list of PyG Data objects
     """
     graph_data_list = []
     for frame in skeleton_sequence:

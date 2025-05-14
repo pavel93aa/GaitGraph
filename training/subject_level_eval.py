@@ -1,36 +1,28 @@
 import torch
-from torch_geometric.data import DataLoader
-from models.gaitgraph import GaitGraph
-from utils.data_loader import PsyMoDataset
-
-# Загрузка данных
-loader = PsyMoDataset(data_dir="../data")
-train_data, test_data = loader.get_datasets()
-
-train_loader = DataLoader(train_data, batch_size=8, shuffle=True)
-test_loader = DataLoader(test_data, batch_size=1, shuffle=False)
-
-# Модель
-model = GaitGraph()
-optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
-criterion = torch.nn.CrossEntropyLoss()
+from collections import Counter
+from sklearn.metrics import classification_report
 
 
-# Цикл обучения
-def train():
-    model.train()
-    total_loss = 0
-    for data in train_loader:
-        optimizer.zero_grad()
-        out = model(data)
-        loss = criterion(out, data.y)
-        loss.backward()
-        optimizer.step()
-        total_loss += loss.item() * data.num_graphs
-    return total_loss / len(train_loader.dataset)
+def subject_level_evaluate(loader, model):
+    model.eval()
+    subject_predictions = {}
 
+    with torch.no_grad():
+        for data in loader:
+            sid = data.subject.item()
+            pred = model(data).argmax(dim=1).item()
 
-# Обучение
-for epoch in range(1, 21):  # 20 эпох
-    loss = train()
-    print(f"Epoch {epoch}, Loss: {loss:.4f}")
+            if sid not in subject_predictions:
+                subject_predictions[sid] = []
+            subject_predictions[sid].append(pred)
+
+    final_pred = {}
+    final_true = []
+
+    for sid, preds in subject_predictions.items():
+        majority_class = Counter(preds).most_common(1)[0][0]
+        final_pred[sid] = majority_class
+        final_true.append(data.y.item())
+
+    print("\n--- Subject-Level Evaluation ---")
+    print(classification_report(final_true, list(final_pred.values()), digits=4))
