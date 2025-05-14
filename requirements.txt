@@ -10,4 +10,3 @@ open3d
 scipy
 plotly
 tqdm
-probreg

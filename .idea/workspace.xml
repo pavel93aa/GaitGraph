@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02e773e2-fba9-4190-9b89-2c09f9c93c95" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/GaitGraph.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GaitGraph.iml" afterDir="false" />
+    <list default="true" id="02e773e2-fba9-4190-9b89-2c09f9c93c95" name="Changes" comment="Made changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/gaitgraph.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/gaitgraph.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/evaluate.py" beforeDir="false" afterPath="$PROJECT_DIR$/training/evaluate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/subject_level_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/training/subject_level_eval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/training/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/training/train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/data_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/pre_processing.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/pre_processing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/visualization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +153,19 @@
       <option name="presentableId" value="Default" />
       <updated>1747216158002</updated>
     </task>
+    <task id="LOCAL-00001" summary="Made changes">
+      <option name="closed" value="true" />
+      <created>1747244337352</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1747244337352</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Made changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made changes" />
   </component>
 </project>
